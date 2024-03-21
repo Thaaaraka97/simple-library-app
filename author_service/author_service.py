@@ -1,5 +1,9 @@
 # author_service.py
 from flask import Flask, jsonify
+import os
+
+AUTHOR_SERVICE_HOST = os.getenv('AUTHOR_SERVICE_HOST')
+AUTHOR_SERVICE_PORT = os.getenv('AUTHOR_SERVICE_PORT')
 
 app = Flask(__name__)
 
@@ -24,4 +28,5 @@ def get_author(author_id):
         return jsonify({'error': 'Author not found'}), 404
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001)
+    # app.run(host='0.0.0.0', port=5001)
+    app.run(host=AUTHOR_SERVICE_HOST, port=AUTHOR_SERVICE_PORT)

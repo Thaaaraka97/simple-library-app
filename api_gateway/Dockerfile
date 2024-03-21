@@ -7,4 +7,6 @@ COPY requirements.txt requirements.txt
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["python","-u","api_gateway.py"]
+#EXPOSE 5002
+
+CMD ["python","api_gateway.py"]

@@ -1,5 +1,9 @@
 # book_service.py
 from flask import Flask, jsonify, request
+import os
+
+BOOK_SERVICE_HOST = os.getenv('BOOK_SERVICE_HOST')
+BOOK_SERVICE_PORT = os.getenv('BOOK_SERVICE_PORT')
 
 app = Flask(__name__)
 
@@ -10,10 +14,12 @@ books = [
     {'id': 3, 'title': 'Book 3', 'author': 'Author 3'}
 ]
 
+
 # Routes for the Book Service
 @app.route('/books', methods=['GET'])
 def get_books():
     return jsonify({'books': books})
+
 
 @app.route('/books/<int:book_id>', methods=['GET'])
 def get_book(book_id):
@@ -23,5 +29,8 @@ def get_book(book_id):
     else:
         return jsonify({'error': 'Book not found'}), 404
 
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    # app.run(host='0.0.0.0', port=5000)
+    # app.run(host='book_service', port=5000)
+    app.run(host=BOOK_SERVICE_HOST, port=BOOK_SERVICE_PORT)

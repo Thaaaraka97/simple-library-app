@@ -7,4 +7,6 @@ COPY requirements.txt requirements.txt
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["python","-u","book_service.py"]
+#EXPOSE 5000
+
+CMD ["python","book_service.py"]

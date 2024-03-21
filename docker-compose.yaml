@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  book_service:
+    build: ./book_service
+#    ports:
+#      - "5000:5000"
+    environment:
+      - BOOK_SERVICE_HOST=book_service
+      - BOOK_SERVICE_PORT=5000
+
+  author_service:
+    build: ./author_service
+#    ports:
+#      - "5001:5001"
+    environment:
+      - AUTHOR_SERVICE_HOST=author_service
+      - AUTHOR_SERVICE_PORT=5001
+
+  api_gateway:
+    build: ./api_gateway
+#    ports:
+#      - "5002:5002"
+    environment:
+      - API_SERVICE_HOST=api_gateway
+      - API_SERVICE_PORT=5002
+      - BOOK_SERVICE_HOST=book_service
+      - BOOK_SERVICE_PORT=5000
+      - AUTHOR_SERVICE_HOST=author_service
+      - AUTHOR_SERVICE_PORT=5001
+
+  web_frontend:
+    build: ./web_frontend
+    ports:
+      - "5003:5003"
+    environment:
+      - FE_SERVICE_HOST=0.0.0.0
+      - FE_SERVICE_PORT=5003
+      - API_GATEWAY_HOST=api_gateway
+      - API_GATEWAY_PORT=5002

@@ -8,4 +8,6 @@ COPY requirements.txt requirements.txt
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["python","-u","web_frontend.py"]
+EXPOSE 5003
+
+CMD ["python","web_frontend.py"]
