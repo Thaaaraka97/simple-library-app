@@ -21,8 +21,18 @@ The application is composed of the following services:
 ### Running the Application
 
 1. Clone the repository:
+
+`git clone https://github.com/Thaaaraka97/simple-library-app.git`
+
+`cd microservices-web-app`
+
 2. Build the Docker images:
+
+`docker-compose build`
+
 3. Start the containers:
+
+`docker-compose up`
 
 This will start all the services as separate Docker containers and map the respective ports to the host machine.
 
