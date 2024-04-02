@@ -3,24 +3,18 @@ version: '3'
 services:
   book_service:
     build: ./book_service
-#    ports:
-#      - "5000:5000"
     environment:
       - BOOK_SERVICE_HOST=book_service
       - BOOK_SERVICE_PORT=5000
 
   author_service:
     build: ./author_service
-#    ports:
-#      - "5001:5001"
     environment:
       - AUTHOR_SERVICE_HOST=author_service
       - AUTHOR_SERVICE_PORT=5001
 
   api_gateway:
     build: ./api_gateway
-#    ports:
-#      - "5002:5002"
     depends_on:
       - author_service
       - book_service

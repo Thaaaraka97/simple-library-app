@@ -40,12 +40,6 @@ This will start all the services as separate Docker containers and map the respe
 
 Once all the containers are running, you can access the web application by opening your web browser and navigating to `http://localhost:5003`.
 
-### Service Discovery
-
-This application uses a service registry (e.g., Consul or ZooKeeper) for service discovery, allowing the services to dynamically discover and communicate with each other without relying on hard-coded IP addresses or hostnames.
-
-To set up the service registry, follow the instructions in the respective service registry documentation.
-
 ## Contributing
 
 Contributions are welcome! If you find any issues or want to add new features, please open an issue or submit a pull request.
