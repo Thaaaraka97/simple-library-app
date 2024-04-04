@@ -3,7 +3,7 @@ version: '3.9'
 services:
 
   book_service:
-    image: alioth729/book_service:v1
+    image: c0875728/simple_library_app:book_service-latest
     environment:
       - BOOK_SERVICE_HOST=0.0.0.0
       - BOOK_SERVICE_PORT=8080
@@ -13,7 +13,7 @@ services:
  
 
   author_service:
-    image: alioth729/author_service:v1
+    image: c0875728/simple_library_app:author_service-latest
     environment:
       - AUTHOR_SERVICE_HOST=0.0.0.0
       - AUTHOR_SERVICE_PORT=8081
@@ -22,7 +22,7 @@ services:
     
 
   api_gateway:
-    image: alioth729/api_gateway:v1
+    image: c0875728/simple_library_app:api_gateway-latest
     depends_on:
       - book_service
       - author_service
@@ -38,7 +38,7 @@ services:
     
 
   web_frontend:
-    image: alioth729/web_frontend:v1
+    image: c0875728/simple_library_app:web_frontend-latest
     ports:
       - "8083:8083"
     depends_on:
