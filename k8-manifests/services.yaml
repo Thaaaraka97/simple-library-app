@@ -1,5 +1,5 @@
 ---
-# book-service-service.yaml
+# book-service-service
 apiVersion: v1
 kind: Service
 metadata:
@@ -11,7 +11,7 @@ spec:
   - port: 5000
     targetPort: 5000
 ---
-# author-service-service.yaml
+# author-service-service
 apiVersion: v1
 kind: Service
 metadata:
@@ -23,7 +23,7 @@ spec:
   - port: 5001
     targetPort: 5001
 ---
-# api-gateway-service.yaml
+# api-gateway-service
 apiVersion: v1
 kind: Service
 metadata:
@@ -35,7 +35,7 @@ spec:
   - port: 5002
     targetPort: 5002
 ---
-# web-frontend-service.yaml
+# web-frontend-service
 apiVersion: v1
 kind: Service
 metadata:

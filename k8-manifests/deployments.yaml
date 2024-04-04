@@ -1,5 +1,5 @@
 ---
-# book-service.yaml
+# book-service
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -24,7 +24,7 @@ spec:
         - name: BOOK_SERVICE_PORT
           value: "5000"
 ---
-# author-service.yaml
+# author-service
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -49,7 +49,7 @@ spec:
         - name: AUTHOR_SERVICE_PORT
           value: "5001"
 ---
-# api-gateway.yaml
+# api-gateway
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -82,7 +82,7 @@ spec:
         - name: AUTHOR_SERVICE_PORT
           value: "5001"
 ---
-# web-frontend.yaml
+# web-frontend
 apiVersion: apps/v1
 kind: Deployment
 metadata:
