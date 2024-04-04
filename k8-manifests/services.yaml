@@ -41,7 +41,8 @@ kind: Service
 metadata:
   name: web-frontend
 spec:
-  type: LoadBalancer
+#  type: LoadBalancer
+  type: NodePort
   selector:
     app: web-frontend
   ports:

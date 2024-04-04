@@ -2,19 +2,22 @@ version: '3'
 
 services:
   book_service:
-    build: ./book_service
+#    build: ./book_service
+    image: c0875728/simple_library_app:book_service-latest
     environment:
       - BOOK_SERVICE_HOST=book_service
       - BOOK_SERVICE_PORT=5000
 
   author_service:
-    build: ./author_service
+#    build: ./author_service
+    image: c0875728/simple_library_app:author_service-latest
     environment:
       - AUTHOR_SERVICE_HOST=author_service
       - AUTHOR_SERVICE_PORT=5001
 
   api_gateway:
-    build: ./api_gateway
+#    build: ./api_gateway
+    image: c0875728/simple_library_app:api_gateway-latest
     depends_on:
       - author_service
       - book_service
@@ -27,7 +30,8 @@ services:
       - AUTHOR_SERVICE_PORT=5001
 
   web_frontend:
-    build: ./web_frontend
+#    build: ./web_frontend
+    image: c0875728/simple_library_app:web_frontend-latest
     ports:
       - "5003:5003"
     depends_on:
