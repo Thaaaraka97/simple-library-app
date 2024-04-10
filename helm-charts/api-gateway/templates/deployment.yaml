@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-gateway
+spec:
+  selector:
+    matchLabels:
+      app: api-gateway
+  template:
+    metadata:
+      labels:
+        app: api-gateway
+    spec:
+      containers:
+      - name: api-gateway
+        image: c0875728/simple_library_app:api_gateway-latest
+        ports:
+        - containerPort: 5002
+        env:
+        - name: API_SERVICE_HOST
+          value: "0.0.0.0"
+        - name: API_SERVICE_PORT
+          value: "5002"
+        - name: BOOK_SERVICE_HOST
+          value: "book-service"
+        - name: BOOK_SERVICE_PORT
+          value: "5000"
+        - name: AUTHOR_SERVICE_HOST
+          value: "author-service"
+        - name: AUTHOR_SERVICE_PORT
+          value: "5001"

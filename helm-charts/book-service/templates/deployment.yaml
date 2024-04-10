@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-service
+spec:
+  selector:
+    matchLabels:
+      app: book-service
+  template:
+    metadata:
+      labels:
+        app: book-service
+    spec:
+      containers:
+      - name: book-service
+        image: c0875728/simple_library_app:book_service-latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: BOOK_SERVICE_HOST
+          value: "0.0.0.0"
+        - name: BOOK_SERVICE_PORT
+          value: "5000"

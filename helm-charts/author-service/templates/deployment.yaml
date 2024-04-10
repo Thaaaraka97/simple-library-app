@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: author-service
+spec:
+  selector:
+    matchLabels:
+      app: author-service
+  template:
+    metadata:
+      labels:
+        app: author-service
+    spec:
+      containers:
+      - name: author-service
+        image: c0875728/simple_library_app:author_service-latest
+        ports:
+        - containerPort: 5001
+        env:
+        - name: AUTHOR_SERVICE_HOST
+          value: "0.0.0.0"
+        - name: AUTHOR_SERVICE_PORT
+          value: "5001"

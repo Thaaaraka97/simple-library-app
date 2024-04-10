@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-frontend
+spec:
+  selector:
+    matchLabels:
+      app: web-frontend
+  template:
+    metadata:
+      labels:
+        app: web-frontend
+    spec:
+      containers:
+      - name: web-frontend
+        image: c0875728/simple_library_app:web_frontend-latest
+        ports:
+        - containerPort: 5003
+        env:
+        - name: FE_SERVICE_HOST
+          value: "0.0.0.0"
+        - name: FE_SERVICE_PORT
+          value: "5003"
+        - name: API_GATEWAY_HOST
+          value: "api-gateway"
+        - name: API_GATEWAY_PORT
+          value: "5002"
