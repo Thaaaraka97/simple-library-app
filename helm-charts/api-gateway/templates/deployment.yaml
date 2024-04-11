@@ -1,31 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api-gateway
+  name: {{ .Values.appName }}
 spec:
   selector:
     matchLabels:
-      app: api-gateway
+      app: {{ .Values.appName }}
   template:
     metadata:
       labels:
-        app: api-gateway
+        app: {{ .Values.appName }}
     spec:
       containers:
-      - name: api-gateway
-        image: c0875728/simple_library_app:api_gateway-latest
+      - name: {{ .Values.appName }}
+        image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
         ports:
-        - containerPort: 5002
+        - containerPort: {{ .Values.apiPort }}
         env:
         - name: API_SERVICE_HOST
-          value: "0.0.0.0"
+          value: "{{ .Values.urls.api }}"
         - name: API_SERVICE_PORT
-          value: "5002"
+          value: "{{ .Values.ports.api }}"
         - name: BOOK_SERVICE_HOST
-          value: "book-service"
+          value: "{{ .Values.urls.books }}"
         - name: BOOK_SERVICE_PORT
-          value: "5000"
+          value: "{{ .Values.ports.books }}"
         - name: AUTHOR_SERVICE_HOST
-          value: "author-service"
+          value: "{{ .Values.urls.authors }}"
         - name: AUTHOR_SERVICE_PORT
-          value: "5001"
+          value: "{{ .Values.ports.authors }}"

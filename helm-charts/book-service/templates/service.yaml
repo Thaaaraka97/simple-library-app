@@ -6,5 +6,5 @@ spec:
   selector:
     app: {{ .Values.appName }}
   ports:
-  - port: {{ .Values.booksPort }}
-    targetPort: {{ .Values.booksPort }}
+  - port: {{ .Values.ports.books }}
+    targetPort: {{ .Values.ports.books }}

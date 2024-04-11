@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-frontend
+  name: {{ .Values.appName }}
 spec:
   selector:
     matchLabels:
-      app: web-frontend
+      app: {{ .Values.appName }}
   template:
     metadata:
       labels:
-        app: web-frontend
+        app: {{ .Values.appName }}
     spec:
       containers:
-      - name: web-frontend
-        image: c0875728/simple_library_app:web_frontend-latest
+      - name: {{ .Values.appName }}
+        image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
         ports:
-        - containerPort: 5003
+        - containerPort: {{ .Values.ports.fe }}
         env:
         - name: FE_SERVICE_HOST
-          value: "0.0.0.0"
+          value: "{{ .Values.urls.fe }}"
         - name: FE_SERVICE_PORT
-          value: "5003"
+          value: "{{ .Values.ports.fe }}"
         - name: API_GATEWAY_HOST
-          value: "api-gateway"
+          value: "{{ .Values.urls.api }}"
         - name: API_GATEWAY_PORT
-          value: "5002"
+          value: "{{ .Values.ports.api }}"

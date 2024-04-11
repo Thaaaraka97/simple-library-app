@@ -18,6 +18,6 @@ spec:
         - containerPort: {{ .Values.booksPort }}
         env:
         - name: BOOK_SERVICE_HOST
-          value: "{{ .Values.booksUrl }}"
+          value: "{{ .Values.urls.books }}"
         - name: BOOK_SERVICE_PORT
-          value: "{{ .Values.booksPort }}"
+          value: "{{ .Values.ports.books }}"

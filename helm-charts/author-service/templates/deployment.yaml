@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: author-service
+  name: {{ .Values.appName }}
 spec:
   selector:
     matchLabels:
-      app: author-service
+      app: {{ .Values.appName }}
   template:
     metadata:
       labels:
-        app: author-service
+        app: {{ .Values.appName }}
     spec:
       containers:
-      - name: author-service
-        image: c0875728/simple_library_app:author_service-latest
+      - name: {{ .Values.appName }}
+        image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
         ports:
-        - containerPort: 5001
+        - containerPort: {{ .Values.authorsPort }}
         env:
         - name: AUTHOR_SERVICE_HOST
-          value: "0.0.0.0"
+          value: "{{ .Values.authorsUrl }}"
         - name: AUTHOR_SERVICE_PORT
-          value: "5001"
+          value: "{{ .Values.authorsPort }}"

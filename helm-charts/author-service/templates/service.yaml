@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: author-service
+  name: {{ .Values.appName }}
 spec:
   selector:
-    app: author-service
+    app: {{ .Values.appName }}
   ports:
-  - port: 5001
-    targetPort: 5001
+  - port: {{ .Values.authorsPort }}
+    targetPort: {{ .Values.authorsPort }}
