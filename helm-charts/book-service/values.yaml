@@ -2,5 +2,5 @@ appName: book-service
 image:
   name: c0875728/simple_library_app
   tag: book_service-latest
-port: 5000
-url: 0.0.0.0
+booksPort: 5000
+booksUrl: 0.0.0.0
