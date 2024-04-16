@@ -9,4 +9,4 @@ spec:
     app: {{ .Values.appName }}
   ports:
   - port: {{ .Values.ports.fe }}
-    targetPort: {{ .Values.ports.fe }}
+    targetPort: 5003

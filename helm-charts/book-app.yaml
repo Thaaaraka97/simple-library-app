@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: book-app
+spec:
+  destination:
+    name: book-app
+    namespace: libraryapp
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: helm-charts/book-service/
+    repoURL: 'https://github.com/Thaaaraka97/simple-library-app.git'
+    targetRevision: HEAD
+  sources: []
+  project: Library-Project
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

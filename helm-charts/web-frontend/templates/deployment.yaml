@@ -15,12 +15,12 @@ spec:
       - name: {{ .Values.appName }}
         image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
         ports:
-        - containerPort: {{ .Values.ports.fe }}
+        - containerPort: 5003
         env:
         - name: FE_SERVICE_HOST
-          value: "{{ .Values.urls.fe }}"
+          value: "0.0.0.0"
         - name: FE_SERVICE_PORT
-          value: "{{ .Values.ports.fe }}"
+          value: "5003"
         - name: API_GATEWAY_HOST
           value: "{{ .Values.urls.api }}"
         - name: API_GATEWAY_PORT

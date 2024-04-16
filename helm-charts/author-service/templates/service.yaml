@@ -6,5 +6,5 @@ spec:
   selector:
     app: {{ .Values.appName }}
   ports:
-  - port: {{ .Values.authorsPort }}
-    targetPort: {{ .Values.authorsPort }}
+  - port: {{ .Values.ports.authors }}
+    targetPort: 5001

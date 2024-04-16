@@ -7,6 +7,5 @@ ports:
   books: 5000
   authors: 5001
 urls:
-  api: 0.0.0.0
   books: book-service
   authors: author-service

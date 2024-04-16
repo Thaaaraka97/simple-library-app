@@ -15,9 +15,9 @@ spec:
       - name: {{ .Values.appName }}
         image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
         ports:
-        - containerPort: {{ .Values.authorsPort }}
+        - containerPort: 5001
         env:
         - name: AUTHOR_SERVICE_HOST
-          value: "{{ .Values.authorsUrl }}"
+          value: "0.0.0.0"
         - name: AUTHOR_SERVICE_PORT
-          value: "{{ .Values.authorsPort }}"
+          value: "5001"

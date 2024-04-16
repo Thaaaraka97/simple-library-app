@@ -15,9 +15,9 @@ spec:
       - name: {{ .Values.appName }}
         image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
         ports:
-        - containerPort: {{ .Values.ports.books }}
+        - containerPort: 5000
         env:
         - name: BOOK_SERVICE_HOST
-          value: "{{ .Values.urls.books }}"
+          value: "0.0.0.0"
         - name: BOOK_SERVICE_PORT
-          value: "{{ .Values.ports.books }}"
+          value: "5000"

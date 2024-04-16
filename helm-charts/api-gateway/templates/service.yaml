@@ -7,4 +7,4 @@ spec:
     app: {{ .Values.appName }}
   ports:
   - port: {{ .Values.ports.api }}
-    targetPort: {{ .Values.ports.api }}
+    targetPort: 5002

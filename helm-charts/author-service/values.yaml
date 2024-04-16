@@ -2,5 +2,7 @@ appName: author-service
 image:
   name: c0875728/simple_library_app
   tag: author_service-latest
-authorsPort: 5001
-authorsUrl: 0.0.0.0
+ports:
+  authors: 5001
+urls:
+  authors: 0.0.0.0
