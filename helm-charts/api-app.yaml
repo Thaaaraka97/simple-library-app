@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: api-app
+spec:
+  destination:
+    name: ''
+    namespace: libraryapp
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: helm-charts/api-gateway/
+    repoURL: 'https://github.com/Thaaaraka97/simple-library-app.git'
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
