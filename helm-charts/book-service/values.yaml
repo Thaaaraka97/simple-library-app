@@ -1,5 +1,5 @@
 appName: book-service
-noOfReplicas : 2
+noOfReplicas: 1
 image:
   name: c0875728/simple_library_app
   tag: book_service-latest
