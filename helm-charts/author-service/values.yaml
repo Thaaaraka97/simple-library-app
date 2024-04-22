@@ -1,5 +1,5 @@
 appName: author-service
-noOfReplicas: 1
+noOfReplicas: 2
 image:
   name: c0875728/simple_library_app
   tag: author_service-latest
