@@ -1,5 +1,5 @@
 appName: api-gateway
-replicas: 1
+noOfReplicas: 1
 image:
   name: c0875728/simple_library_app
   tag: api_gateway-latest
